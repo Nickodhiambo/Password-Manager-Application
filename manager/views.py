@@ -2,6 +2,19 @@ from django.shortcuts import render
 from .models import PasswordEntry
 import bcrypt
 
+
+def index(request):
+    """Returns index page"""
+    return render(request, 'manager/index.html')
+
+
+def all_entries(request):
+    """Returns a list of all password entries"""
+    entries = PasswordEntry.objects.all()
+    context = {'entries': entries}
+    return render(request, 'manager/entries.html', context)
+
+
 # Create your views here.
 def hash_password(password):
     """Hashes and salts plain-text passwords"""

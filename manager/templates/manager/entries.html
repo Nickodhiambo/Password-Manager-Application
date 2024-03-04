@@ -1,0 +1,14 @@
+{% extends "manager/base.html" %}
+
+{% block content %}
+
+<p>Entries</p>
+<ul>
+    {% for entry in entries %}
+        <li>{{ entry }}</li>
+    {% empty %}
+        <li>No password entries yet</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
