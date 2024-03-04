@@ -6,7 +6,7 @@ class PasswordEntry(models.Model):
     """Defines password's data structure"""
     website_url = models.URLField(max_length=200)
     username = models.CharField(max_length=100)
-    hashed_password = models.CharField(max_length=500)
+    password = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from .models import PasswordEntry
+from .forms import PasswordEntryForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 import bcrypt
 
 
@@ -15,7 +18,6 @@ def all_entries(request):
     return render(request, 'manager/entries.html', context)
 
 
-# Create your views here.
 def hash_password(password):
     """Hashes and salts plain-text passwords"""
     hashed_password = bcrypt(password.encode(), bcrypt.gensalt())
@@ -25,22 +27,25 @@ def hash_password(password):
 def store_password(request):
     """Stores hashed password and related account info"""
     if request.method == 'POST':
-        website_name = request.POST['website_name']
-        username = request.POST['username']
-        password = request.POST['password']
+        form = PasswordEntryForm(request.POST)
+        
+        if form.is_valid:
+            website_name = form['website_url']
+            username = form['username']
+            password = form['password']
 
-        # Hash plaintext password
-        hashed_password = hash_password(password)
+            # Hash plaintext password
+            hashed_password = hash_password(password)
 
-        # Store entry in db
-        password_entry = PasswordEntry.objects.create(
-                website_name = website_name,
-                username = username,
-                hashed_password = hashed_password
-                )
-        password_entry.save()
-        #Redirect to view all password entries
-        return redirect('password_entries')
+            # Create and save a password entry instance
+            password_entry = form.save(commit=False) #Create an instance without saving
+            password_entry.password = hashed_password
+            password_entry.save()
+
+            #Redirect to view all password entries
+            return HttpResponseRedirect(reverse('manager:entries'))
     else:
-        # Render the form to store password
-        return render(request, store_password.html)
+        form = PasswordEntryForm()
+    # Render the form to process new password entries
+    context = {'form': form}
+    return render(request, 'manager/store_password.html', context)
