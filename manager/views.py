@@ -54,7 +54,7 @@ def edit_entry(request, entry_id):
 
 def hash_password(password):
     """Hashes and salts plain-text passwords"""
-    hashed_password = bcrypt(password.encode(), bcrypt.gensalt())
+    hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     return hashed_password.decode()
 
 
