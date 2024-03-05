@@ -17,5 +17,5 @@ urlpatterns = [
         path('store_entry/', views.store_password, name='store'),
 
 		# Edit a password entry
-        path('edit_entry/<int:entry_id>/', views.edit_entry, name='entry'),
+        path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit'),
 ]

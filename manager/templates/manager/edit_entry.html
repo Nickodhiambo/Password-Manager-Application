@@ -4,7 +4,7 @@
 
     <p>Edit password entry</p>
 
-    <form action="{% url 'manager:edit_entry' entry.id %}" method="post">
+    <form action="{% url 'manager:edit' entry.id %}" method="post">
         {% csrf_token %}
 	{{ form.as_p }}
 	<button name="submit">Save entry</button>

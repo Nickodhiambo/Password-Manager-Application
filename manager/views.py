@@ -42,12 +42,12 @@ def edit_entry(request, entry_id):
             password_entry = form.save(commit=False)
             
             #Hash the plaintext password
-            hashed_password = hash_password(password)
+            hashed_password = hash_password(password_entry.password)
             
             #Update password field with hashed password
             password_entry.password = hashed_password
 
-            return HttpResponseRedirect(reverse('manager:reverse'))
+            return HttpResponseRedirect(reverse('manager:entries'))
 
     context = {'entry': entry, 'form': form}
     return render(request, 'manager/edit_entry.html', context)
