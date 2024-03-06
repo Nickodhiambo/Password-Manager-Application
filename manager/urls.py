@@ -13,7 +13,7 @@ urlpatterns = [
         # Show a single password entry
         path('entry/<int:entry_id>/', views.entry, name='entry'),
         
-        #Create a password entry
+        # Create a password entry
         path('store_entry/', views.store_password, name='store'),
 
 		# Edit a password entry

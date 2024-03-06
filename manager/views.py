@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import PasswordEntry
 from .forms import PasswordEntryForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import bcrypt
@@ -24,6 +24,8 @@ def all_entries(request):
 def entry(request, entry_id):
     """Retrieves a single entry by ID"""
     entry = PasswordEntry.objects.get(id=entry_id)
+    if entry.owner != request.user:
+        raise Http404
     context = {'entry': entry}
     return render(request, 'manager/entry.html', context)
 
@@ -32,11 +34,13 @@ def entry(request, entry_id):
 def edit_entry(request, entry_id):
     """Edit a password entry"""
     entry = PasswordEntry.objects.get(id=entry_id)
+    if entry.owner != request.user:
+        raise Http404
     if request.method != 'POST':
         # Prefill the form with existing entry before update
         form = PasswordEntryForm(instance=entry)
     else:
-        form=PasswordEntryForm(instance=entry, data=request.POST)
+        form = PasswordEntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             # Create an instance of the update without saving
             password_entry = form.save(commit=False)
@@ -67,6 +71,9 @@ def store_password(request):
         if form.is_valid:
             #Create an instance without saving
             password_entry = form.save(commit=False)
+
+            #Associate a new entry with current user
+            password_entry.owner = request.user
             
             # Hash plaintext password
             hashed_password = hash_password(password_entry.password)
