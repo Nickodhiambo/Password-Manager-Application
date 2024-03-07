@@ -2,6 +2,10 @@
 
 {% block content %}
 
-<p>Entry {{ entry }}</p>
+    <p>
+        Entry:
+        {{ entry }}
+    </p>
+    <a href="{% url 'manager:edit' entry.id %}">Edit</a>
 
 {% endblock content %}

@@ -18,4 +18,4 @@ class PasswordEntry(models.Model):
 
     def __str__(self):
         """Returns a string rep of password entry"""
-        return f"{self.username} - {self.website_url}"
+        return f"{self.username} - {self.website_url} - {self.password}"

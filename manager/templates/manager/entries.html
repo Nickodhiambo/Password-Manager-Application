@@ -5,7 +5,7 @@
 <p>Entries</p>
 <ul>
     {% for entry in entries %}
-        <li>{{ entry }}</li>
+    <li><a href="{% url 'manager:entry' entry.id %}">{{ entry }}<a/></li>
     {% empty %}
         <li>No password entries yet</li>
     {% endfor %}
