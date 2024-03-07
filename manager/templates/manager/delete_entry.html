@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h2>Delete Password Entry</h2>
+    <p>Are you sure you want to delete this password entry?</p>
+    <p>Website URL: {{ entry.website_url }}</p>
+    <p>Username: {{ entry.username }}</p>
+    <form action="{% url 'delete' entry.entry_id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+        <a href="{% url 'entries' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+

@@ -4,12 +4,19 @@ from .forms import PasswordEntryForm
 from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-import bcrypt
+import string
+import random
 
 
 def index(request):
     """Returns index page"""
     return render(request, 'manager/index.html')
+
+
+def generate_password(length=8):
+    """Generates a random 8-character string"""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return "".join(random.choice(characters) for _ in range(length))
 
 
 @login_required
@@ -50,11 +57,6 @@ def edit_entry(request, entry_id):
     context = {'entry': entry, 'form': form}
     return render(request, 'manager/edit_entry.html', context)
 
-def hash_password(password):
-    """Hashes and salts plain-text passwords"""
-    hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-    return hashed_password.decode()
-
 
 @login_required
 def store_password(request):
@@ -88,3 +90,15 @@ def search_entry(request):
         entries = PasswordEntry.objects.filter(owner=request.user)
     context = {'entries': entries}
     return render(request, 'manager/search_entries.html', context)
+
+
+def delete_entry(request, entry_id):
+    """Deletes a password entry"""
+    entry = PasswordEntry.objects.get(id=entry_id)
+    if entry.owner != request.user:
+        raise Http404
+    else:
+        entry.delete()
+        return HttpResponseRedirect(reverse('manager:entries'))
+    context = {'entry': entry}
+    return render(request, 'manager/delete_entry.html', context)
