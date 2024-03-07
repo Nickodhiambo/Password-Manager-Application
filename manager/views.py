@@ -42,14 +42,8 @@ def edit_entry(request, entry_id):
     else:
         form = PasswordEntryForm(instance=entry, data=request.POST)
         if form.is_valid():
-            # Create an instance of the update without saving
-            password_entry = form.save(commit=False)
-            
-            #Hash the plaintext password
-            hashed_password = hash_password(password_entry.password)
-            
-            #Update password field with hashed password
-            password_entry.password = hashed_password
+            # Save updates
+            password_entry = form.save()
 
             return HttpResponseRedirect(reverse('manager:entries'))
 
@@ -74,12 +68,6 @@ def store_password(request):
 
             #Associate a new entry with current user
             password_entry.owner = request.user
-            
-            # Hash plaintext password
-            hashed_password = hash_password(password_entry.password)
-
-            # Update the password field with hashed password
-            password_entry.password = hashed_password
             password_entry.save()
 
             #Redirect to view all password entries
