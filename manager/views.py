@@ -77,3 +77,14 @@ def store_password(request):
     # Render the form to process new password entries
     context = {'form': form}
     return render(request, 'manager/store_password.html', context)
+
+
+def search_entry(request):
+    """Searches for a password entry by site name"""
+    query = request.GET.get('q')
+    if query:
+        entries = PasswordEntry.objects.filter(website_url__icontains=query, owner=request.user)
+    else:
+        entries = PasswordEntry.objects.filter(owner=request.user)
+    context = {'entries': entries}
+    return render(request, 'manager/search_entries.html', context)

@@ -1,0 +1,21 @@
+{% extends "manager/base.html" %}
+
+{% block content %}
+
+    <p>Search for a password entry by site name</p>
+
+    <form method="GET" action="{% url 'manager:search_entries' %}">
+        <input type="text" name="q" placeholder="Search by site name">
+        <button type=submit>Search password</button>
+    </form>
+
+    {% if entries %}
+        <ul>
+            {% for entry in entries %}
+	        <li>{{ entry }}</li>
+	    {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching entries found</p>
+    {% endif %}
+{% endblock content %}

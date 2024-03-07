@@ -18,4 +18,7 @@ urlpatterns = [
 
 		# Edit a password entry
         path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit'),
+
+        # Search for an entry
+        path('search/', views.search_entry, name='search_entries'),
 ]
