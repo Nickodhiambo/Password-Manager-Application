@@ -12,7 +12,7 @@
     {% if entries %}
         <ul>
             {% for entry in entries %}
-	        <li>{{ entry }}</li>
+	    <li><a href="{% url 'manager:entry' entry.id %}">{{ entry }}</a></li>
 	    {% endfor %}
         </ul>
     {% else %}
