@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: #000;
+    color: #fff;
+}
+
+/* Index styles */
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.index h1{
+    font-size: 2.5rem;
+    padding: 15px;
+}
+.index h4{
+    font-size: 1.4rem;
+    padding: 15px;
+}
+.index p{
+    font-size: 1.15rem;
+    padding: 15px;
+}
+
+.index p button{
+    background: #ff0000;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.index p button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Registration page styles */
+div.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 15px;
+    background: #343541;
+    height: 85vh;
+    width: 700px;
+    border-radius: 10px;
+}
+
+.reg-header{
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.reg-form p{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+.reg-form p input{
+    border-radius: 4px;
+    border: none;
+    outline:  none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 6px;
+    max-height: 30px;
+}
+
+.reg-form ul{
+    padding: 10px 0;
+    font-size: 1.13rem;
+}
+
+.reg-form button{
+    transform: translateX(250px);
+    background: #ff0000;
+    color: #fff;
+    padding: 10px auto;
+    margin: 10px 0 20px;
+    text-align: center;
+    border-radius: 5px;
+    width: 130px;
+    height: 55px;
+    font-size: 1.13rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}

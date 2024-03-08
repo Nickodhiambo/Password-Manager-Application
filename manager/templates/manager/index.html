@@ -2,6 +2,11 @@
 
 {% block content %}
 
-<p> This application provides you with a secure way to store and manage your accounts' passwords</p>
+<div class="content">
+    <div class="index">
+        <h1>A secure way to store and manage your passwords.</h1>
+        <h4>Create, save, edit or delete passwords at your convenience.</h4>
+        <p>Ready to manage your passwords? <button><a href="{% url 'users:register' %}">register</a></button> or <button><a href="{% url 'users:login' %}">login</a></button> get started.</p>
+    </div>
 
 {% endblock content %}
