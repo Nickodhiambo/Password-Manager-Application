@@ -2,15 +2,22 @@
 
 {% block content %}
 
-<p>Entries</p>
-<ul>
-    {% for entry in entries %}
-    <li><a href="{% url 'manager:entry' entry.id %}">{{ entry }}<a/></li>
-    {% empty %}
-        <li>No password entries yet</li>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'manager:store' %}">Add a new password</a>
+<div class="entries">
+    <div class="entries-header">
+        <p class="entries-par">Passwords</p>
+        <a href="{% url 'manager:store' %}">Add a new password</a>
+    </div>
+    <ul>
+        {% for entry in entries %}
+            <li class="list-item">
+                <a href="{% url 'manager:entry' entry.0 %}">{{ entry.1 }}</a>
+                <a href="{% url 'manager:entry' entry.0 %}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </li>
+        {% empty %}
+            <li>No password entries yet</li>
+        {% endfor %}
+        </div>
+    </ul>
+</div>
 
 {% endblock content %}

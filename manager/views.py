@@ -22,7 +22,7 @@ def generate_password(length=8):
 @login_required
 def all_entries(request):
     """Returns a list of all password entries"""
-    entries = PasswordEntry.objects.filter(owner=request.user)
+    entries = PasswordEntry.objects.filter(owner=request.user).values_list('id', 'website_url')
     context = {'entries': entries}
     return render(request, 'manager/entries.html', context)
 
