@@ -7,5 +7,6 @@
         {{ entry }}
     </p>
     <a href="{% url 'manager:edit' entry.id %}">Edit</a>
+    <a href="{% url 'manager:delete' entry.id %}">Delete</a>
 
 {% endblock content %}
