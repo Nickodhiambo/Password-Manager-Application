@@ -101,4 +101,4 @@ def delete_entry(request, entry_id):
         entry.delete()
         return HttpResponseRedirect(reverse('manager:entries'))
     context = {'entry': entry}
-    return render(request, 'manager/delete_entry.html', context)
+    return render(request, 'manager/entry.html', context)
