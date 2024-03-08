@@ -1,15 +1,31 @@
-{% extends "manager/index.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% load static %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Password Manager</title>
+      <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
 
-{% block content %}
-
-    {% if form.errors %}
-        <p>Invalid credentials</p>
-    {% endif %}
-
-    <form action="{% url 'users:login' %}" method="post">
-        {% csrf_token %}
-	{{ form.as_p }}
-	<button name="submit">Login</button>
-	<input type="hidden" name="next" value="{% url 'manager:index' %}" />
-    </form>
-{% endblock content %}
+  <body>
+    <div class="log">
+        <div class="login-container">
+            <h2>Login to your account</h2>
+            <form class="login-form" action="/users/login/" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="id_username">Username:</label>
+                    <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                </p>
+                <p class="p2">
+                    <label for="id_password">Password:</label>
+                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+                </p>
+                <button name="submit">Login</button>
+                <input type="hidden" name="next" value="/manager/index/">
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
