@@ -382,10 +382,9 @@ div.error{
 .edit .edit-container{
     display: block;
     background: #343434;
-    height: 70vh;
+    height: 75vh;
     width: 600px;
     color: #fff;
-    margin-top: 10px;
     padding: 10px 20px;
     font-size: 1.2rem;
     border-radius: 10px;
@@ -414,7 +413,7 @@ form input{
     background: #444654;
     color: #fff;
     border-radius: 4px;
-    padding: 10px 15px;
+    padding: 7px 15px;
     border: none;
     outline: none;
     margin: 7px 0;
@@ -427,8 +426,8 @@ form a:hover{
 form button:not(#search-btn){
     position: absolute;
     right: 20px;
-    margin-bottom: 15px;
-    padding: 7px 10px;
+    margin-bottom: 10px;
+    padding: 0px 10px;
     width: 130px;
     border-radius: 5px;
     outline: none;

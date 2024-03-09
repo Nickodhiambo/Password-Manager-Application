@@ -2,6 +2,10 @@
 
 {% block content %}
 
+{% if form.errors %}
+    p>Invalid data</p>
+{% endif %}
+
     <div class="edit">
         <div class="edit-container">
             <form action="{% url 'manager:edit' entry_fields.id %}" method="post">
@@ -9,7 +13,7 @@
                 {% csrf_token %}
                 <div class="edit-link">
                     <h6>Website URL</h6>
-                    <a href="{{entry_fields.website_url}}" target="blank">{{ entry_fields.website_url }}</a>
+                    <input type="url" name="website_url" value="{{ entry_fields.website_url }}"maxlength="200" required="" aria-invalid="true" id="id_website_url">
                 </div>
                 <div>
                     <h6>Username</h6>
@@ -19,7 +23,7 @@
                     <h6>Password</h6>
                     <input type="text" name="password" value="{{ entry_fields.password }}" maxlength="500" required="" id="id_password">
                 </div>
-                <button name="submit">Save password</button>
+                <button name="submit">Save changes</button>
             </form>
         </div>
     </div>
