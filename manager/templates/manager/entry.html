@@ -1,12 +1,37 @@
 {% extends "manager/base.html" %}
 
 {% block content %}
+<div class="entry-contents">
+    <div class="entry-container">
+        <div class="entry-rows">
 
-    <p>
-        Entry:
-        {{ entry }}
-    </p>
-    <a href="{% url 'manager:edit' entry.id %}">Edit</a>
-    <a href="{% url 'manager:delete' entry.id %}">Delete</a>
+            <h3>
+                {{ entry_fields.website_url }}
+            </h3>
+            <div class="inner-row">
+
+                <div class="site-user">
+                    <div>
+                        <h6>Username</h6>
+                        <input type="text" name="username" value="{{ entry_fields.username }}" readonly>
+                    </div>
+                
+                    <div class="site-link">
+                        <h6>Website URL</h6>
+                        <a href="{{entry_fields.website_url}}" target="blank">{{ entry_fields.website_url }}</a>
+                    </div>
+                </div>
+                <div class="pass-div">
+                    <h6>Password</h6>
+                    <input type="text" name="password" value="{{ entry_fields.password }}" readonly>
+                </div>
+            </div>
+            <div class="entry-controls">
+                <button class="edit-btn"><a href="{% url 'manager:edit' entry_fields.id %}">Edit</a></button>
+                <button class="delete-btn"><a href="{% url 'manager:delete' entry_fields.id %}">Delete</a></button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

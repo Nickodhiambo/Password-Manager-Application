@@ -33,7 +33,13 @@ def entry(request, entry_id):
     entry = PasswordEntry.objects.get(id=entry_id)
     if entry.owner != request.user:
         raise Http404
-    context = {'entry': entry}
+    entry_fields = {
+        'id': entry.id,
+        'website_url': entry.website_url,
+        'username': entry.username,
+        'password': entry.password
+    }
+    context = {'entry_fields': entry_fields}
     return render(request, 'manager/entry.html', context)
 
 

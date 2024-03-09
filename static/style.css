@@ -207,7 +207,7 @@ div.error{
 
 .entries{
     display: block;
-    margin: 50px 50px 50px 100px;;
+    margin: 50px 50px 50px 100px;
     background: #343434;
     padding: 16px;
     border-radius: 10px;
@@ -271,4 +271,104 @@ div.error{
 
 .entries ul li:hover{
     background: #444654;
+}
+
+/* Entry styling */
+
+.entry-contents{
+    display: flex;
+    justify-content: center;
+}
+
+.entry-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #343434;
+    height: 65vh;
+    width: 600px;
+    color: #fff;
+    margin-top: 25px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.entry-container a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.site-user .site-link a{
+    text-decoration: underline;
+}
+
+.entry-container a:hover{
+    color: #009000;
+}
+
+.entry-rows div{
+    padding: 7px;
+}
+
+.entry-rows h3{
+    margin: 20px 0;
+    padding-top: 16px;
+    font-weight: 300;
+}
+
+.entry-rows .site-user{
+    display: flex;
+    gap: 20px;
+}
+
+.inner-row input{
+    width: 250px;
+    background: #444654;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+}
+
+.inner-row .pass-div{
+    transform: translateX(7px);
+}
+
+.entry-rows .entry-controls{
+    margin: 20px 0;
+    border-top: 1px solid #fff;
+    width: 100%;
+}
+
+.entry-controls button{
+    min-width: 100px;
+    padding: 10px;
+    margin: 15px 7px 7px;;
+    background: #343434;
+    color: #fff;
+    outline: none;
+    border: 1px solid #7CB9E8;
+    border-radius: 5px;
+}
+
+.entry-controls .edit-btn a{
+    color: #fff;
+}
+
+.entry-controls .delete-btn a{
+    color: #fff;
+}
+
+.entry-controls .edit-btn:hover{
+    background: #009000;
+    color: #fff;
+    font-weight: 600;
+}
+
+.entry-controls .delete-btn:hover{
+    background: #ff0000;
+    font-weight: 600;
 }
