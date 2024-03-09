@@ -1,21 +1,26 @@
 {% extends "manager/base.html" %}
 
 {% block content %}
+<div class="search-container">
+    <div class="search-content">
+        <form class="search-form" method="GET" action="{% url 'manager:search_entries' %}">
+            <div class="search-controls">
+                <input type="text" name="q" placeholder="Search by site name">
+                <button id="search-btn" class="material-symbols-outlined" type=submit>Search</button>
+            </div>
+        </form>
 
-    <p>Search for a password entry by site name</p>
+        <h3>Passwords</h3>
 
-    <form method="GET" action="{% url 'manager:search_entries' %}">
-        <input type="text" name="q" placeholder="Search by site name">
-        <button type=submit>Search password</button>
-    </form>
-
-    {% if entries %}
+        {% if entries %}
         <ul>
             {% for entry in entries %}
-	    <li><a href="{% url 'manager:entry' entry.id %}">{{ entry }}</a></li>
-	    {% endfor %}
+            <li><a href="{% url 'manager:entry' entry.0 %}">{{ entry.1 }}</a></li>
+            {% endfor %}
         </ul>
-    {% else %}
+        {% else %}
         <p>No matching entries found</p>
-    {% endif %}
+        {% endif %}
+    </div>
+</div>
 {% endblock content %}

@@ -286,7 +286,7 @@ div.error{
     align-items: center;
     background: #343434;
     height: 65vh;
-    width: 600px;
+    width: 700px;
     color: #fff;
     margin-top: 25px;
     padding: 15px;
@@ -313,7 +313,7 @@ div.error{
 }
 
 .entry-rows h3{
-    margin: 20px 0;
+    margin: 20px;
     padding-top: 16px;
     font-weight: 300;
 }
@@ -371,4 +371,174 @@ div.error{
 .entry-controls .delete-btn:hover{
     background: #ff0000;
     font-weight: 600;
+}
+
+/* Edit entry page styling */
+.edit{
+    display: flex;
+    justify-content: center;
+}
+
+.edit .edit-container{
+    display: block;
+    background: #343434;
+    height: 70vh;
+    width: 600px;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.edit-container form{
+    padding: 20px;
+    position: relative;
+}
+
+form div {
+    padding: 7px 0;
+}
+
+form .edit-link{
+    padding: 10px 0;
+}
+
+form .edit-link a{
+    color: #fff;
+    font-size: 1rem;
+}
+
+form input{
+    width: 250px;
+    background: #444654;
+    color: #fff;
+    border-radius: 4px;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    margin: 7px 0;
+}
+
+form a:hover{
+    color: #009000;
+}
+
+form button:not(#search-btn){
+    position: absolute;
+    right: 20px;
+    margin-bottom: 15px;
+    padding: 7px 10px;
+    width: 130px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: #009000;
+    color: #fff;
+    font-weight: 500;
+}
+
+form button:not(#search-btn):hover{
+    background: #c2c2c2;
+    color: #000;
+    font-weight: 600;
+}
+
+/* Store entries styling */
+.store-container{
+    display: flex;
+    justify-content: center;;
+}
+
+.store-container .form-container{
+    display: block;
+    background: #343434;
+    height: 70vh;
+    width: 600px;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+.form-container form{
+    position: relative;
+}
+
+.form-container .store div{
+    padding: 7px;
+}
+
+.store div input{
+    width: 300px;
+}
+
+/* Search entry styling */
+.search-form .search-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    background: #343434;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.search-controls input{
+    width: 80%;
+    height: 30px;
+    margin: 0 10px;
+    border: none;
+    outline: none;
+    background: #343434;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.search-controls button{
+    margin: 0 10px;
+    padding: 7px;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: #343434;
+    cursor: pointer;
+}
+
+.search-content h3{
+    font-size: 1.5rem;
+    margin: 20px;
+}
+
+.search-content ul{
+    margin: 20px;
+    list-style: none;
+}
+
+.search-content ul li{
+    height: 55px;
+    width: 80%;
+    padding: 7px 15px;
+    border-bottom: 1px solid #fff;
+    background: #3c3c3d;
+    border-radius: 5px 5px 0 0;
+}
+
+.search-content ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 0 7px;
+}
+
+.search-content p{
+    width: 80%;
+    margin: 20px;
+    padding: 7px 10px;
+    border-radius: 5px;
+    background: #3c3c3d;
+    font-size: 1.15rem;
+    font-weight: 500;
 }

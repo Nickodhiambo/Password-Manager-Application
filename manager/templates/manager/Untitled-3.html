@@ -1,0 +1,64 @@
+{% extends "manager/base.html" %}
+
+{% block content %}
+
+    <p>Edit password entry</p>
+
+    <form action="{% url 'manager:edit' entry_fields.id %}" method="post">
+        {% csrf_token %}
+	{{ form.as_p }}
+	<button name="submit">Save entry</button>
+    </form>
+{% endblock content %}
+
+
+</head>
+
+<body><div class="base-container">
+    <div class="home-link">
+        <a href="/manager/index/">Password Manager</a>
+    </div>
+    <div class="nav-links">
+        <ul>
+            <li><a href="/manager/entries/">View all passwords</a></li>
+            <li><a href="/manager/store_entry/">Create password</a></li>
+            <li><a href="/manager/search/">Search password</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<p>Edit password entry</p>
+
+<form action="/manager/edit_entry/6/" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="kH2DvmGUqgl7lF2xLb22Wotdlg8QWR2RUYm6HZAZ0dIdbCd87oupC4ohz44CK8is">
+<ul class="errorlist"><li>This field is required.</li></ul>
+<p>
+<label for="id_website_url">Website url:</label>
+<input type="url" name="website_url" maxlength="200" required="" aria-invalid="true" id="id_website_url">
+
+
+</p>
+
+
+<p>
+<label for="id_username">Username:</label>
+<input type="text" name="username" value="nodhiambo01@gmail.com" maxlength="100" required="" id="id_username">
+
+
+</p>
+
+
+<p>
+<label for="id_password">Password:</label>
+<input type="text" name="password" value="@Nikoch966" maxlength="500" required="" id="id_password">
+
+
+  
+
+</p>
+<button name="submit">Save entry</button>
+</form>
+
+
+</body></html>

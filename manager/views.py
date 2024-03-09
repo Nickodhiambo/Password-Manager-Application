@@ -56,11 +56,17 @@ def edit_entry(request, entry_id):
         form = PasswordEntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             # Save updates
-            password_entry = form.save()
-
+            form.save()
             return HttpResponseRedirect(reverse('manager:entries'))
+        
+    entry_fields = {
+        "id": entry.id,
+        "website_url": entry.website_url,
+        "username": entry.username,
+        "password": entry.password
+    }
 
-    context = {'entry': entry, 'form': form}
+    context = {'entry_fields': entry_fields, 'form': form}
     return render(request, 'manager/edit_entry.html', context)
 
 
@@ -87,17 +93,19 @@ def store_password(request):
     return render(request, 'manager/store_password.html', context)
 
 
+@login_required
 def search_entry(request):
     """Searches for a password entry by site name"""
     query = request.GET.get('q')
     if query:
-        entries = PasswordEntry.objects.filter(website_url__icontains=query, owner=request.user)
+        entries = PasswordEntry.objects.filter(website_url__icontains=query, owner=request.user).values_list('id', 'website_url')
     else:
-        entries = PasswordEntry.objects.filter(owner=request.user)
+        entries = PasswordEntry.objects.filter(owner=request.user).values_list('id', 'website_url')
     context = {'entries': entries}
     return render(request, 'manager/search_entries.html', context)
 
 
+@login_required
 def delete_entry(request, entry_id):
     """Deletes a password entry"""
     entry = PasswordEntry.objects.get(id=entry_id)
