@@ -30,7 +30,7 @@ def register(request):
                 login(request, authenticated_user)
 
                 # Redirect logged in user to dashboard
-                return HttpResponseRedirect(reverse('manager:index'))
+                return HttpResponseRedirect(reverse('users:login'))
             
             # Handle credentials validation
             except ValueError as e:
