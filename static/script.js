@@ -1,14 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Copy functionality
-  var copyIcon = document.getElementById('copy');
-  copyIcon.addEventListener('click', function() {
-      var passwordInput = document.querySelector('input[name="password"]');
-      navigator.clipboard.writeText(passwordInput.value).then(function() {
-          console.log('Copying to clipboard was successful!');
-      }, function(err) {
-          console.error('Could not copy text: ', err);
-      });
-  });
+  var copyIcon = document.querySelectorAll('.copy');
+  copyIcon.forEach((icon) => {
+    icon.addEventListener('click', function(event) {
+        const input = event.target.parentNode.querySelector('input')
+        navigator.clipboard.writeText(input.value).then(function() {
+            event.target.innerText = "check"
+            setTimeout(() => {
+                event.target.innerText = 'content_copy'
+            }, 1000)
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    });
+  })
 
   // Toggle password visibility
   var toggleVisibilityIcon = document.getElementById('toggleVisibility');
