@@ -365,9 +365,11 @@ div.error{
 
 .inner-row span{
     color: #fff;
-    background: #444654;
+    background: none;
     padding: 0 5px;
     cursor: pointer;
+    transform: translateY(5px);
+    border-radius: 3px;
 }
 
 .inner-row .pass-div{
