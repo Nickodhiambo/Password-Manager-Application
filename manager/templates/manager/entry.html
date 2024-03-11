@@ -13,7 +13,7 @@
                 <div class="site-user">
                     <div>
                         <h6>Username</h6>
-                        <input type="text" name="username" value="{{ entry_fields.username }}" readonly>
+                        <input type="text" name="username" value="{{ entry_fields.username }}" readonly id="usernameInput">
                         <span id="copy" class="material-symbols-rounded">content_copy</span>
                     </div>
                 
@@ -24,8 +24,8 @@
                 </div>
                 <div class="pass-div">
                     <h6>Password</h6>
-                    <input type="text" name="password" value="{{ entry_fields.password }}" readonly>
-                    <span class="material-symbols-outlined">Visibility</span>
+                    <input type="password" name="password" value="{{ entry_fields.password }}" readonly id="passwordInput">
+                    <span id="toggleVisibility" class="material-symbols-outlined">visibility</span>
                     <span id="copy" class="material-symbols-rounded">content_copy</span>
                 </div>
             </div>

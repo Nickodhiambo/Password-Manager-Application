@@ -1,46 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% load static %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Password Manager</title>
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-    </head>
-    <body>
-        <div class="error">
-            {% if form.errors %}
-                <p>Invalid credentials</p>
-            {% endif %}
-        </div>
-        <div class="reg">
-            <div class="reg-container">
-                <h2 class="reg-header">Create an account</h2>
-                <form class="reg-form" action="{% url 'users:register' %}" method="post">
-                    {% csrf_token %}
-                    <p>
-                        <label for="id_username">Username:</label>
-                        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
-                    </p>
-                    <p>
-                        <label for="id_password1">Password:</label>
-                        <input type="password" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
-                    </p>
-                    <p>
-                        <label for="id_password2">Password confirmation:</label>
-                        <input type="password" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
-                    </p>
-        
-                    <ul>
-                        <li>Your password must contain at least 8 characters.</li>
-                        <li>Your password can’t be entirely numeric.</li>
-                    </ul>
-                    <button id="reg-btn" name="submit">Register</button>
-                    <input type="hidden" name="next" value="/users/login" />
-                </form>
-            </div>
-        </div>
-    
-    </body>
-</html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) { 
+            // Toggle password visibility
+            function togglePasswordVisibility(fieldId) {
+                const passwordInput = document.getElementById(fieldId);
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                } else {
+                    passwordInput.type = "password";
+                }
+            }
 
+            // Copy password to confirmation field
+            function copyPassword() {
+                const password1 = document.getElementById('id_password1').value;
+                document.getElementById('id_password2').value = password1;
+            }
+
+            window.togglePasswordVisibility = togglePasswordVisibility;
+            window.copyPassword = copyPassword;
+        });
+    </script>
+</head>
+<body>
+    <div class="error">
+        {% if form.errors %}
+            <p>Invalid credentials</p>
+        {% endif %}
+    </div>
+    <div class="reg">
+        <div class="reg-container">
+            <h2 class="reg-header">Create an account</h2>
+            <form class="reg-form" action="{% url 'users:register' %}" method="post">
+                {% csrf_token %}
+                <p>
+                    <label for="id_username">Username:</label>
+                    <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" aria-describedby="id_username_helptext" id="id_username">
+                </p>
+                <p>
+                    <label for="id_password1">Password:</label>
+                    <input type="password" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
+                    <button type="button" onclick="togglePasswordVisibility('id_password1')">Show</button>
+                </p>
+                <p>
+                    <label for="id_password2">Password confirmation:</label>
+                    <input type="password" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
+                    <button type="button" onclick="togglePasswordVisibility('id_password2')">Show</button>
+                    <button type="button" onclick="copyPassword()">Copy</button>
+                </p>
+
+                <ul>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can’t be entirely numeric.</li>
+                </ul>
+                <button id="reg-btn" name="submit">Register</button>
+                <input type="hidden" name="next" value="/users/login" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>

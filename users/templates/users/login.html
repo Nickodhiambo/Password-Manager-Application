@@ -6,6 +6,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Password Manager</title>
       <link rel="stylesheet" href="{% static 'style.css' %}">
+      <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("id_password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+        </script>
   </head>
 
   <body>
@@ -20,7 +30,8 @@
                 </p>
                 <p class="p2">
                     <label for="id_password">Password:</label>
-                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password" style="margin-right: 5px;">
+                    <button type="button" onclick="togglePasswordVisibility()" style="padding: 0 5px;">Show</button>
                 </p>
                 <button id="log-btn" name="submit">Login</button>
                 <input type="hidden" name="next" value="/manager/entries/">
@@ -29,3 +40,4 @@
     </div>
   </body>
 </html>
+

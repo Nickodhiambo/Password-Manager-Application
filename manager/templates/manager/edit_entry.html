@@ -1,30 +1,49 @@
 {% extends "manager/base.html" %}
 
 {% block content %}
-
 {% if form.errors %}
-    p>Invalid data</p>
+    <p>Invalid data</p>
 {% endif %}
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("id_password");
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    }
 
-    <div class="edit">
-        <div class="edit-container">
-            <form action="{% url 'manager:edit' entry_fields.id %}" method="post">
-                <h3>Edit Password</h3>
-                {% csrf_token %}
-                <div class="edit-link">
-                    <h6>Website URL</h6>
-                    <input type="url" name="website_url" value="{{ entry_fields.website_url }}"maxlength="200" required="" aria-invalid="true" id="id_website_url">
-                </div>
-                <div>
-                    <h6>Username</h6>
-                    <input type="text" name="username" value="{{ entry_fields.username }}" maxlength="100" required="" id="id_username">
-                </div>
-                <div class="pass-div">
-                    <h6>Password</h6>
-                    <input type="text" name="password" value="{{ entry_fields.password }}" maxlength="500" required="" id="id_password">
-                </div>
-                <button name="submit">Save changes</button>
-            </form>
-        </div>
+    function copyToClipboard() {
+        var passwordInput = document.getElementById("id_password");
+        var password = passwordInput.value;
+        navigator.clipboard.writeText(password).then(function() {
+            alert('Password copied to clipboard!');
+        }, function() {
+            alert('Failed to copy password.');
+        });
+    }
+</script>
+<div class="edit">
+    <div class="edit-container">
+        <form action="{% url 'manager:edit' entry_fields.id %}" method="post">
+            <h3>Edit Password</h3>
+            {% csrf_token %}
+            <div class="edit-link">
+                <h6>Website URL</h6>
+                <input type="url" name="website_url" value="{{ entry_fields.website_url }}" maxlength="200" required="" aria-invalid="true" id="id_website_url">
+            </div>
+            <div>
+                <h6>Username</h6>
+                <input type="text" name="username" value="{{ entry_fields.username }}" maxlength="100" required="" id="id_username">
+            </div>
+            <div class="pass-div">
+                <h6>Password</h6>
+                <input type="text" name="password" value="{{ entry_fields.password }}" maxlength="500" required="" id="id_password">
+                <button type="button" onclick="copyToClipboard()" title="Copy to Clipboard" style="cursor: pointer;">Copy</button>
+            </div>
+            <button name="submit">Save changes</button>
+        </form>
     </div>
+</div>
 {% endblock content %}
