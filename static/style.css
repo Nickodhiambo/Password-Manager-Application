@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+:root {
+    /* Dark theme variables (default) */
+    --background-color: #000;
+    --text-color: #fff;
+    --accent-color: #ff0000;
+    --nav-background-color: #009000;
+    --secondary-background-color: #343541;
+    --entry-background-color: #343434;
+    --border-color: #fff;
 }
 
-body{
-    background: #000;
-    color: #fff;
+.light-theme {
+    /* Light theme variables */
+    --background-color: #fff;
+    --text-color: #000;
+    --accent-color: #007bff; /* A different accent color for the light theme, if desired */
+    --nav-background-color: #00c000;
+    --secondary-background-color: #f0f0f0;
+    --entry-background-color: #ffffff;
+    --border-color: #000;
 }
 
 /* Base html styles  */
@@ -33,550 +43,49 @@ body{
 
 .nav-links ul .logout{
     background: #009000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Update all instances where specific colors are set to use the CSS variables instead */
+.nav-links ul .logout {
+    background: var(--nav-background-color);
     padding: 0 7px;
     border-radius: 4px;
     font-size: 0.93rem;
 }
 
-.base-container a{
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-bottom: 2px solid #ff0000;
-    padding: 12px 0;
+.base-container a, .index p button a, .entries-header a, .entry-container a, .edit-container form a, .search-content ul li a {
+    color: var(--text-color);
+    /* Add other properties as needed */
 }
 
-/* Index styles */
+/* Continue updating CSS styles to use the defined variables where appropriate */
 
-.logo-container{
-    display: flex;
-    justify-content: center;
+/* Example for background and border colors */
+.reg-container, .login-container, .entry-container, .edit-container, .store-container .form-container, .search-form .search-controls {
+    background: var(--secondary-background-color);
+    border-color: var(--border-color);
+    /* Add other properties as needed */
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    padding: 7px;
-    background: #fff;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    width: 150px;
-
-}
-
-.logo img{
-    height: 130px;
-    width: 130px;
-}
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px auto;
-    padding: 10px;
-    text-align: center;
-    height: 55vh;
-}
-
-.index h1{
-    font-size: 2.5rem;
-    padding: 15px;
-}
-.index h4{
-    font-size: 1.4rem;
-    padding: 15px;
-}
-.index p{
-    font-size: 1.15rem;
-    padding: 15px;
-}
-
-.index p button{
-    background: #ff0000;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 4px;
-    border: none;
-    outline: none;
-}
-
-.index p button a{
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Registration page styles */
-div.error{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-:where(.reg, .log){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-:where(.reg-container, .login-container){
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    padding: 15px;
-    background: #343541;
-    height: 85vh;
-    width: 700px;
-    border-radius: 10px;
-}
-
-.reg-header{
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 2.5rem;
-    font-weight: 600;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-.reg-form p{
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-    padding: 15px;
-    font-size: 1.2rem;
-}
-
-.reg-form p input{
-    border-radius: 4px;
-    border: none;
-    outline:  none;
-    font-weight: 500;
-    font-size: 1.2rem;
-    padding: 6px;
-    max-height: 30px;
-}
-
-.reg-form ul{
-    padding: 10px 0;
-    font-size: 1.13rem;
-}
-
-:where(.reg-form, .login-form) button{
-    background: #ff0000;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: 600;
-    border: none;
-    outline: none;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.reg-form button{
-    transform: translateX(250px);
-    padding: 10px auto;
-    margin: 10px 0 20px;
-    width: 130px;
-    height: 55px;
-    font-size: 1.13rem;
-}
-
-/* Login page styles */
-
-.login-container{
-    height: 70vh;
-}
-
-.login-container h2{
-    margin: -50px 0 15px;
-    text-transform: uppercase;
-}
-
-.login-container .login-form{
-    font-size: 1.2rem;
-}
-
-.login-container .login-form .p2{
-    margin: 20px 0;
-}
-
-.login-form p{
-    margin: 20px 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 15px;
-}
-
-.login-form p input{
-    border-radius: 4px;
-    border: none;
-    outline:  none;
-    font-weight: 500;
-    font-size: 1.2rem;
-    padding: 10px;
-    max-height: 30px;
-    
-}
-
-.login-form button{
-    padding: 7px 20px;
-    width: 130px;
-    transform: translateX(180px);
-    margin-top: 20px;
-}
-
-/* Entries styling */
-
-.entries{
-    display: block;
-    margin: 50px 50px 50px 100px;
-    background: #343434;
-    padding: 16px;
-    border-radius: 10px;
-}
-
-.entries-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.entries-header p{
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 0 0 20px 40px;
-    padding-left: 12px;
-}
-
-.entries-header a{
-    color: #fff;
-    font-size: 1rem;
-    text-decoration: none;
-    margin-right: 20px;
-    font-weight: 500;
-    border: 1px solid #c2c2c2;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-.entries-header a:hover{
-    background: #fff;
-    color: #000;
-}
-
-.entries ul{
-    list-style: none;
-    color: #fff;
-    margin-bottom: 50px;
-}
-
-.entries ul li{
-    margin: 20px 40px;
-    padding: 12px 12px;
-    height: 55px;
-    width: 80%;
-    border: 1px solid #fff;
-    border-radius: 5px;
-}
-
-.list-item{
-    display: flex;
-    justify-content: space-between;
-}
-
-.entries ul a{
-    color: #fff;
-    font-size: 1rem;
-    text-decoration: none;
-}
-
-.entries ul li:hover{
-    background: #444654;
-}
-
-/* Entry styling */
-
-.entry-contents{
-    display: flex;
-    justify-content: center;
-}
-
-.entry-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #343434;
-    height: 65vh;
-    width: 700px;
-    color: #fff;
-    margin-top: 25px;
-    padding: 15px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-}
-
-.entry-container a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.site-user .site-link a{
-    text-decoration: underline;
-}
-
-.entry-container a:hover{
-    color: #009000;
-}
-
-.entry-rows div{
-    padding: 7px;
-}
-
-.entry-rows h3{
-    margin: 20px;
-    padding-top: 16px;
-    font-weight: 300;
-}
-
-.entry-rows .site-user{
-    display: flex;
-    gap: 20px;
-}
-
-.inner-row input{
-    width: 250px;
-    background: #444654;
-    color: #fff;
-    border-radius: 4px;
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-}
-
-.inner-row span{
-    color: #fff;
-    background: none;
-    padding: 0 5px;
-    cursor: pointer;
-    transform: translateY(5px);
-    border-radius: 3px;
-}
-
-.inner-row .pass-div{
-    transform: translateX(7px);
-}
-
-.entry-rows .entry-controls{
-    margin: 20px 0;
-    border-top: 1px solid #fff;
-    width: 100%;
-}
-
-.entry-controls button{
-    min-width: 100px;
-    padding: 10px;
-    margin: 15px 7px 7px;;
-    background: #343434;
-    color: #fff;
-    outline: none;
-    border: 1px solid #7CB9E8;
-    border-radius: 5px;
-}
-
-.entry-controls .edit-btn a{
-    color: #fff;
-}
-
-.entry-controls .delete-btn a{
-    color: #fff;
-}
-
-.entry-controls .edit-btn:hover{
-    background: #009000;
-    color: #fff;
-    font-weight: 600;
-}
-
-.entry-controls .delete-btn:hover{
-    background: #ff0000;
-    font-weight: 600;
-}
-
-/* Edit entry page styling */
-.edit{
-    display: flex;
-    justify-content: center;
-}
-
-.edit .edit-container{
-    display: block;
-    background: #343434;
-    height: 73vh;
-    width: 600px;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-}
-
-.edit-container form{
-    padding: 20px;
-    position: relative;
-}
-
-form div {
-    padding: 7px 0;
-}
-
-form .edit-link{
-    padding: 10px 0;
-}
-
-form .edit-link a{
-    color: #fff;
-    font-size: 1rem;
-}
-
-form input{
-    width: 250px;
-    background: #444654;
-    color: #fff;
-    border-radius: 4px;
-    padding: 7px 15px;
-    border: none;
-    outline: none;
-    margin: 7px 0;
-}
-
-form a:hover{
-    color: #009000;
-}
-
-form button:not(#search-btn, #reg-btn, #log-btn){
-    position: absolute;
-    right: 20px;
-    margin: 10px 0;
-    padding: 12px 16px;
-    width: 130px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    background: #009000;
-    color: #fff;
-    font-weight: 500;
-}
-
-form button:not(#search-btn):hover{
-    background: #c2c2c2;
-    color: #000;
-    font-weight: 600;
-}
-
-/* Store entries styling */
-.store-container{
-    display: flex;
-    justify-content: center;;
-}
-
-.store-container .form-container{
-    display: block;
-    background: #343434;
-    height: 70vh;
-    width: 600px;
-    color: #fff;
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 10px;
-}
-
-.form-container form{
-    position: relative;
-}
-
-.form-container .store div{
-    padding: 7px;
-}
-
-.store div input{
-    width: 300px;
-}
-
-/* Search entry styling */
-.search-form .search-controls{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 400px;
-    background: #343434;
-    margin: 20px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.search-controls input{
-    width: 80%;
-    height: 30px;
-    margin: 0 10px;
-    border: none;
-    outline: none;
-    background: #343434;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.search-controls button{
-    margin: 0 10px;
-    padding: 7px;
-    align-items: center;
-    border: none;
-    outline: none;
-    background: #343434;
-    cursor: pointer;
-}
-
-.search-content h3{
-    font-size: 1.5rem;
-    margin: 20px;
-}
-
-.search-content ul{
-    margin: 20px;
-    list-style: none;
-}
-
-.search-content ul li{
-    height: 55px;
-    width: 80%;
-    padding: 7px 15px;
-    border-bottom: 1px solid #fff;
-    background: #3c3c3d;
-    border-radius: 5px 5px 0 0;
-}
-
-.search-content ul li a{
-    color: #fff;
-    text-decoration: none;
-    padding: 0 7px;
+/* Entries styling example */
+.entries, .entries ul li {
+    background: var(--entry-background-color);
+    border-color: var(--border-color);
+    /* Add other properties as needed */
 }
 
-.search-content p{
-    width: 80%;
-    margin: 20px;
-    padding: 7px 10px;
-    border-radius: 5px;
-    background: #3c3c3d;
-    font-size: 1.15rem;
-    font-weight: 500;
+#toggleVisibility, .copy {
+    cursor: pointer
 }
