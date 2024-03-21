@@ -4,7 +4,15 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
 
-# Create your views here.
+def save_theme(request):
+    if request.method == 'POST':
+        theme = request.POST.get('theme', 'light')
+        profile, created = UserProfile.objects.get_or_create(user=request.user)
+        profile.theme = theme
+        profile.save()
+        return redirect('some-view-name')  # Redirect to a desired page
+    return render(request, 'settings.html')  # Render settings page if not a POST request
+
 def logout_view(request):
     """Implements logout"""
     logout(request)

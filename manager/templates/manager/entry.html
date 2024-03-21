@@ -4,7 +4,7 @@
 <div class="entry-contents">
     <div class="entry-container">
         <div class="entry-rows">
-
+            
             <h3>
                 {{ entry_fields.website_url }}
             </h3>
@@ -14,7 +14,7 @@
                     <div>
                         <h6>Username</h6>
                         <input type="text" name="username" value="{{ entry_fields.username }}" readonly id="usernameInput">
-                        <span class="copy material-symbols-rounded">content_copy</span>
+                        <span class="copy material-symbols-outlined">content_copy</span>
                     </div>
                 
                     <div class="site-link">
@@ -26,8 +26,9 @@
                     <h6>Password</h6>
                     <input type="password" name="password" value="{{ entry_fields.password }}" readonly id="passwordInput">
                     <span id="toggleVisibility" class="material-symbols-outlined">visibility</span>
-                    <span class="copy material-symbols-rounded">content_copy</span>
+                    <span class="copy material-symbols-outlined">content_copy</span>
                 </div>
+               
             </div>
             <div class="entry-controls">
                 <button class="edit-btn"><a href="{% url 'manager:edit' entry_fields.id %}">Edit</a></button>
