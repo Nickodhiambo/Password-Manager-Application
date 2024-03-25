@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from .models import PasswordEntry
-from .forms import PasswordEntryForm
-from django.http import HttpResponseRedirect, Http404
+from .models import PasswordEntry, UserProfile
+from .forms import PasswordEntryForm, ThemeToggleForm
+from django.http import HttpResponseRedirect, Http404, HttpRequest
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 import string
 import random
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+
 
 
 def index(request):
     """Returns index page"""
     return render(request, 'manager/index.html')
-
 
 def generate_password(length=8):
     """Generates a random 8-character string"""
@@ -116,3 +118,4 @@ def delete_entry(request, entry_id):
         return HttpResponseRedirect(reverse('manager:entries'))
     context = {'entry': entry}
     return render(request, 'manager/entry.html', context)
+

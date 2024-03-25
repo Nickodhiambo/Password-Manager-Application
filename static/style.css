@@ -492,7 +492,7 @@ form a:hover {
     color: #009000
 }
 
-form button:not(#search-btn, #log-btn), #reg-btn {
+form button:not(#search-btn, #log-btn, #generatePasswordBtn, #toggle-theme), #reg-btn {
     background: #009000;
     border-radius: 5px;
     border: none;

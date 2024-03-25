@@ -1,8 +1,9 @@
+{% with current_theme=request.user.profile.theme %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
-    <script src="{% static '/script.js' %}" defer></script>
+    <script src="{% static 'script.js' %}" defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Manager</title>
@@ -13,7 +14,7 @@
     <link rel="icon" type="image/x-icon" href="{% static '/images/key.svg' %}"/>
 
 </head>
-<body class="{{ theme }}-theme"> <!-- Dynamic theme class added here  -->
+<body class="{{ current_theme }}-theme">
     <div class="base-container">
         <div class="home-link">
             <a href="{% url 'manager:index' %}">Password Manager</a>
@@ -28,19 +29,19 @@
                 {% else %}
                 <li><a href="{% url 'users:login' %}">login</a></li>
                 {% endif %}
-                <li><a href="#">Toggle</a></li>
+                <li>
+                    <form method="POST" action="{% url 'users:toggle_theme' %}">
+                        {% csrf_token %}
+                        <button id="toggle-theme" type="submit" name="toggle_theme">Toggle theme ({{ current_theme}}) </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
     {% block content %}{% endblock content %}
     <script>
-        const btn = document.getElementById('theme-toggle');
         
-        btn?.addEventListener('click', function() {
-            // Toggle a class on the whole document
-            document.documentElement.classList.toggle('dark-theme');
-            // Save the user's preference (you'll need to implement this part)
-        });
     </script>
 </body>
 </html>
+{% endwith %}
