@@ -12,5 +12,8 @@ urlpatterns = [
         path('logout/', views.logout_view, name='logout'),
 
         # Register
-        path('register/', views.register, name='register')
-        ]
+        path('register/', views.register, name='register'),
+        
+        # Toggle Theme
+        path('toggle_theme/', views.toggle_theme, name='toggle_theme')
+]

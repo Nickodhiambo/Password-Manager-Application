@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import RedirectView
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('manager/', include('manager.urls')),
     path('users/', include('users.urls')),
-    path('', RedirectView.as_view(url='/manager/index/', permanent=True)),  # Redirect root URL to /manager/index/
-]
+    path('', RedirectView.as_view(url='/manager/home/', permanent=True)),  # Redirect root URL to /manager/index/
+]   
 

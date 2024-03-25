@@ -6,9 +6,10 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, blank=True)
+    theme = models.CharField(max_length=20, default='light')
 
     def __str__(self):
-        return self.user.username
+        return self.theme
 
 # Signal to create/update user profile
 @receiver(post_save, sender=User)

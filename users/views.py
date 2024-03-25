@@ -1,17 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpRequest
 from django.urls import reverse
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from users.models import Profile
 
-def save_theme(request):
+@login_required
+def toggle_theme(request: HttpRequest):
     if request.method == 'POST':
-        theme = request.POST.get('theme', 'light')
-        profile, created = UserProfile.objects.get_or_create(user=request.user)
-        profile.theme = theme
+        profile, created = Profile.objects.get_or_create(user=request.user)
+        profile.theme = 'light' if profile.theme == 'dark' else 'dark'
         profile.save()
-        return redirect('some-view-name')  # Redirect to a desired page
-    return render(request, 'settings.html')  # Render settings page if not a POST request
+        
+    return redirect(request.META.get('HTTP_REFERER'))  # Redirect to a desired page
 
 def logout_view(request):
     """Implements logout"""
