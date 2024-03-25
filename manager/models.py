@@ -1,10 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    theme = models.CharField(max_length=20, default='light')
-
 class PasswordEntry(models.Model):
     """Defines password's data structure"""
     website_url = models.URLField(max_length=200)

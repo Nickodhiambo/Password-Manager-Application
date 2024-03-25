@@ -1,5 +1,5 @@
 from django import forms
-from .models import PasswordEntry, UserProfile
+from .models import PasswordEntry
 
 
 class PasswordEntryForm(forms.ModelForm):
@@ -7,9 +7,3 @@ class PasswordEntryForm(forms.ModelForm):
     class Meta:
         model = PasswordEntry
         fields = ['website_url', 'username', 'password']
-
-
-class ThemeToggleForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ["theme"]

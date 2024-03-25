@@ -5,7 +5,7 @@ app_name = 'manager'
 
 urlpatterns = [
         # Home page
-        path('index/', views.index, name='index'),
+        path('home/', views.home, name='home'),
 
         # Show all password entries
         path('entries/', views.all_entries, name='entries'),

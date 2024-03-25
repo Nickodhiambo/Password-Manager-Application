@@ -10,22 +10,18 @@
         <link rel="icon" type="image/x-icon" href="{% static '/images/key.svg' %}"/>
         
     </head>
+    <body class="home-page"> <!-- Added class here -->
+     {% block content %}
 
-    {% block content %}
-    <div class="logo-container">
-        <div class="logo">
-            <img src="{% static 'images/key.svg' %}" alt="key-img">
-        </div>
-    </div>
 
     <div class="content">
-        <div class="index">
+        <div class="home">
             <h1>A secure way to store and manage your passwords.</h1>
             <h4>Add, save, edit or delete passwords at your convenience.</h4>
             <p>Ready to manage your passwords? <button><a href="{% url 'users:register' %}">Get started here</a></button>
             <p>Already have an account? <button><a href="{% url 'users:login' %}">sign in</a></button></p>
         </div>
     </div>
-
     {% endblock content %}
-</html
+</body>
+</html>
