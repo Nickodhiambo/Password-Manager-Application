@@ -58,29 +58,23 @@
             <form class="reg-form" action="{% url 'users:register' %}" method="post">
                 {% csrf_token %}
                 <p>
-                    <label for="id_name">Name:</label>
-                    <input type="text" name="name" id="id_name" required="">
-                </p>
-                <p>
                     <label for="id_username">Username:</label>
                     <input type="text" name="username" id="id_username" required="">
                 </p>
                 <p>
                     <label for="id_password1">Password:</label>
                     <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
-                    <button type="button" onclick="togglePasswordVisibility('id_password1')">Show</button>
                 </p>
                 <p>
                     <label for="id_password2">Password confirmation:</label>
                     <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
-                    <button type="button" onclick="togglePasswordVisibility('id_password2')">Show</button>
                 </p>
-                <!-- Strong Password Suggestion Section -->
+                <!-- Strong Password Suggestion Section
                 <div class="password-suggestion">
                     <button type="button" id="generate-password">Generate Strong Password</button>
                     <input type="text" id="suggested-password" readonly>
                     <button type="button" onclick="useSuggestedPassword()">Use This Password</button>
-                </div>
+                </div>-->
                 <ul>
                     <li>Your password must contain at least 8 characters.</li>
                     <li>Your password can’t be entirely numeric.</li>
