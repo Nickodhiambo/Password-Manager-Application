@@ -70,6 +70,66 @@ body.light-theme{
     font-size: 0.93rem;
     padding: 0 7px
 }
+/* Navbar styling */
+.navbar {
+    background-color: var(--nav-background-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin-left: 20px;
+}
+
+/* Main Landing Page Content */
+.main-landing {
+    text-align: center;
+    padding: 100px 20px;
+    color: var(--text-color);
+    background: url('path_to_your_background_image') no-repeat center center/cover;
+}
+
+.main-landing h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.main-landing p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--nav-background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
 
 body {
     background: #000;

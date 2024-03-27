@@ -1,7 +1,6 @@
-{% with current_theme=request.user.profile.theme %}
-<!DOCTYPE html>
+{% load static %} <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% load static %}
     <script src="{% static 'script.js' %}" defer></script>
     <meta charset="utf-8">
@@ -14,34 +13,28 @@
     <link rel="icon" type="image/x-icon" href="{% static '/images/key.svg' %}"/>
 
 </head>
-<body class="{{ current_theme }}-theme">
+  <body class="{% block body_class %}dark-theme{%endblock%}">
     <div class="base-container">
-        <div class="home-link">
+          <div class="home-link">
             <a href="{% url 'public:home' %}">Password Manager</a>
-        </div>
-        <div class="nav-links">
+        </div>            <div class="nav-links">
+
             <ul>
-                <li><a href="{% url 'manager:entries' %}">View all passwords</a></li>
-                <li><a href="{% url 'manager:store' %}">Add password</a></li>
-                <li><a href="{% url 'manager:search_entries' %}">Search password</a></li>
+                <li><a href="{% url 'public:home' %}">Home</a></li>
+                <li><a href="{% url 'public:services' %}">Services</a></li>
+                <li><a href="{% url 'public:contact' %}">Contact</a></li>
                 {% if user.is_authenticated %}
+                <li><a href="{% url 'manager:entries' %}">View all passwords</a></li>
+
                 <li class="logout"><a href="{% url 'users:logout' %}">logout</a></li>
-                <li>
-                    <form method="POST" action="{% url 'users:toggle_theme' %}">
-                        {% csrf_token %}
-                        <button id="toggle-theme" type="submit" name="toggle_theme">Toggle theme ({{ current_theme}}) </button>
-                    </form>
-                </li>
                 {% else %}
                 <li><a href="{% url 'users:login' %}">login</a></li>
                 {% endif %}
             </ul>
-        </div>
-    </div>
-    {% block content %}{% endblock content %}
-    <script>
-        
-    </script>
+          </div>
+      
+</header>
+</div>
+{% block content %}{% endblock content %}
 </body>
 </html>
-{% endwith %}

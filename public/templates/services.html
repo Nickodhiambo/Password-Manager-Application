@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block body_class %}home-page{% endblock%}
+
+
+     {% block content %}
+
+
+    <div class="content">
+        <div class="home">
+            <h1>A secure way to store and manage your passwords.</h1>
+            <h4>Add, save, edit or delete passwords at your convenience.</h4>
+            <p>Ready to manage your passwords? <button><a href="{% url 'users:register' %}">Register here</a></button>
+            <p>Already have an account? <button><a href="{% url 'users:login' %}">sign in</a></button></p>
+        </div>
+    </div>
+    {% endblock content %}

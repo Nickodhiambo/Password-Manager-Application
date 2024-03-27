@@ -4,9 +4,6 @@ from . import views
 app_name = 'manager'
 
 urlpatterns = [
-        # Home page
-        path('home/', views.home, name='home'),
-
         # Show all password entries
         path('entries/', views.all_entries, name='entries'),
 

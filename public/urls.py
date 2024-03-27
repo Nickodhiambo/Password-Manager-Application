@@ -17,14 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import RedirectView
+from . import views
 
+app_name = 'public'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('manager/', include('manager.urls')),
-    path('users/', include('users.urls')),
-    path('public/', include('public.urls')),
-    path('', RedirectView.as_view(url='public/')), 
-    
+    path('', views.landing, name="landing"),
+    path('home/', views.home, name="home"),
+    path('services/', views.services, name="services"),
+    path('contact/', views.contact, name="contact"),
+    path('contribution/',views.contribution, name="contribution"),
+
 ]   
 

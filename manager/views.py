@@ -10,14 +10,19 @@ from django.http import HttpResponseRedirect
 
 
 
-
 def home(request):
     """Returns index page"""
     return render(request, 'manager/home.html')
 
+
+def services(request):
+    return render(request, 'manager/services.html')
+
+
 def landing(request):
     """Returns landing page"""
     return render(request, 'manager/landing.html')
+
 
 def generate_password(length=8):
     """Generates a random 8-character string"""
