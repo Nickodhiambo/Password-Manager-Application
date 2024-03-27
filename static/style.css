@@ -710,3 +710,28 @@ form button:not(#search-btn):hover {
     padding: 7px 10px;
     width: 80%
 }
+
+textarea {
+    background: #444654;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    outline: none;
+    padding: 10px 15px;
+    width: 220px;
+    height: 150px;
+    resize: none;
+
+}
+
+.form-wrapper{
+    position: relative;
+    width: 316px;
+}
+
+.alert-danger {
+    color: red
+}
+.alert-success {
+    color: green
+}
