@@ -15,6 +15,10 @@ def home(request):
     """Returns index page"""
     return render(request, 'manager/home.html')
 
+def landing(request):
+    """Returns landing page"""
+    return render(request, 'manager/landing.html')
+
 def generate_password(length=8):
     """Generates a random 8-character string"""
     characters = string.ascii_letters + string.digits + string.punctuation

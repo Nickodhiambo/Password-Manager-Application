@@ -34,6 +34,7 @@ body.light-theme{
 
 .light-theme .base-container a{
     color: var(--theme-color);
+    font-weight: 700;
 }
 
 
