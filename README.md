@@ -85,6 +85,7 @@ Your contributions are welcome! If you're interested in improving the Password M
 For queries or feedback, please reach out to us at:
 
 - Winfred Kioko - Winffredkalondu@gmail.com
-- Nick Odhiambo - (Your Contact Information)
+- Nick Odhiambo - nodhiambo01@gmail.com
+
 
 
