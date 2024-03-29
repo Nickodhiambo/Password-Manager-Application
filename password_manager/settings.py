@@ -31,11 +31,7 @@ SECRET_KEY = 'django-insecure-a@*vzlg1=k*6j(c9&v7#n%3w9xdl161qbk)x#%&e=$&=m&d5b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-HOST = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-
-ALLOWED_HOSTS = ['localhost']
-ALLOWED_HOSTS.append(HOST)
-
+ALLOWED_HOSTS = ['localhost', 'password-manager-application-c38o.onrender.com']
 
 # Application definition
 
