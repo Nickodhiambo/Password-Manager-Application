@@ -18,7 +18,7 @@ def toggle_theme(request: HttpRequest):
 def logout_view(request):
     """Implements logout"""
     logout(request)
-    return HttpResponseRedirect(reverse('manager:landing'))
+    return HttpResponseRedirect(reverse('public:landing'))
 
 def register(request):
     """Registers a new user"""
