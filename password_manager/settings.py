@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 env = environ.Env()
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,10 @@ SECRET_KEY = 'django-insecure-a@*vzlg1=k*6j(c9&v7#n%3w9xdl161qbk)x#%&e=$&=m&d5b!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+HOST = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+
+ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS.append(HOST)
 
 
 # Application definition

@@ -21,6 +21,7 @@ services:
       - db
     environment:
       DATABASE_URL: postgres://password_manager:pwd@db:5432/password_manager
+      RENDER_EXTERNAL_HOSTNAME: localhost
 
 volumes:
   postgres_data:
