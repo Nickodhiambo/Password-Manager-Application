@@ -9,15 +9,11 @@ A collaborative endeavor by **Winfred Kioko** and **Nick Odhiambo**, this projec
 ## Technology Stack
 
 - **Backend:** Django
-- **Database:** SQLite
+- **Database:** PostgreSQL
 - **Frontend:** HTML, CSS, JavaScript
 
 ## Key Features
 
-Secure Password Storage: Safeguard your passwords with state-of-the-art encryption.
-Easy Retrieval of Passwords: Access your passwords quickly and securely.
-Strong Password Generator: Create strong, unique passwords to enhance your security.
-Theme Customization: Choose between light and dark modes for personalized user experience.
 
 - **Secure Password Storage:** Safeguard your passwords with state-of-the-art encryption.
 - **Easy Retrieval of Passwords:** Access your passwords quickly and securely.
@@ -28,44 +24,34 @@ Theme Customization: Choose between light and dark modes for personalized user e
 
 ### Prerequisites
 
-- Python 3.6 or higher
-- pip (Python package installer)
+- Docker
 
 ### Environment Setup
 
 1. **Clone the Repository:**
- git clone https://github.com/Nickodhiambo/Password-Manager-Application.git
+`git clone https://github.com/Nickodhiambo/Password-Manager-Application.git`
 
 
 2. **Navigate to the Project Directory:**
-
- cd password-manager-app
+`cd password-manager-app`
 
  
-3. **Install Dependencies:**
-   pip install -r requirements.txt
+3. **Install Dependencies using Docker:**
+Simply run:
+`docker compose up -d`
+
 
 ### Database Configuration
-Database Configuration
 
-The application utilizes SQLite, which is included with Django, eliminating the need for additional database setup.
+The application utilizes PostgreSQL
 
 ### Running the Application
 
-1. **Initialize the Database Schema:**
-python manage.py makemigrations
-python manage.py migrate
+1. Build the application
 
-3. **Start the Server:**
-python manage.py runserver
+`docker compose exec web ./build.sh`
 
-
-4. **Access the Application:**
-Start the Server:
-
-python manage.py runserver
-
-Access the Application:
+2. **Access the Application:**
 Open your web browser and navigate to http://127.0.0.1:8000/ to enjoy the Password Manager Application.
 
 ## How to Use
@@ -85,7 +71,5 @@ Your contributions are welcome! If you're interested in improving the Password M
 For queries or feedback, please reach out to us at:
 
 - Winfred Kioko - Winffredkalondu@gmail.com
-- Nick Odhiambo - nodhiambo01@gmail.com
-
-
+- Nick Odhiambo - (Your Contact Information)
 
