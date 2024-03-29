@@ -49,6 +49,7 @@ pbr==5.11.1
 pefile==2023.2.7
 Pillow==10.0.0
 platformdirs==3.10.0
+psycopg2-binary==2.9.9
 pycparser==2.21
 pyflakes==2.2.0
 pygame==2.5.2
